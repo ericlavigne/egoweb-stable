@@ -82,7 +82,7 @@
 	</target>
 	
 	<target name="jar" depends="compile,test">
-		<jar jarfile="${dist.dir}/egoweb.jar" duplicate="preserve">
+		<jar jarfile="${dist.dir}/egoweb-stable.jar" duplicate="preserve">
 			<manifest>
 				<attribute name="Main-Class" value="${main.class.web}" />
 			</manifest>

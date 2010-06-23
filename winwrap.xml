@@ -1,7 +1,7 @@
 <launch4jConfig>
 	<headerType>gui</headerType>
-	<outfile>dist/egoweb.exe</outfile>
-	<jar>dist/egoweb.jar</jar>
+	<outfile>dist/egoweb-stable.exe</outfile>
+	<jar>dist/egoweb-stable.jar</jar>
 	<singleInstance>
 		<mutexName>egoweb</mutexName>
 		<windowTitle>Egoweb is already running.</windowTitle>
