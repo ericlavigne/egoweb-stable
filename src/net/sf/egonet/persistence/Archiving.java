@@ -394,7 +394,6 @@ public class Archiving {
 			// in case ordering == null, I use the order they were pulled from the DB
 		addAttribute(questionNode,"ordering", ordering);
 		addAttribute(questionNode,"answerReasonExpressionId", question.getAnswerReasonExpressionId());
-		addAttribute(questionNode,"useIf", question.getUseIfExpression());
 		addAttribute(questionNode,"otherSpecify", question.getOtherSpecify());
 		addAttribute(questionNode,"noneButton", question.getNoneButton());
 		addAttribute(questionNode,"allButton", question.getAllButton());
@@ -456,9 +455,11 @@ public class Archiving {
 		question.setPreface(attrText(node,"preface"));
 		question.setPrompt(attrText(node,"prompt"));
 		question.setCitation(attrText(node,"citation"));
-		question.setUseIfExpression(attrString(node,"useIf"));
-		question.setOtherSpecify(attrBool(node,"otherSpecify"));
-		
+		try {
+			question.setOtherSpecify(attrBool(node,"otherSpecify"));
+		} catch (RuntimeException _) {
+			question.setOtherSpecify(false);
+		}
 		aType = question.getAnswerType();
 		if ( aType==Answer.AnswerType.NUMERICAL ) {
 			try {
